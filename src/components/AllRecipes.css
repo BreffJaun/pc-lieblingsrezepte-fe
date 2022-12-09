@@ -1,0 +1,29 @@
+.allRecipesField{
+    height: 580px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+
+
+/* S C R O L L B A L K E N */
+
+/* green */
+body ::-webkit-scrollbar{
+  width: 3px;
+}
+/* track */
+body ::-webkit-scrollbar-track{
+background-color: rgba(0,0,0,0.4);
+border-radius: 10px;
+width: 1px;
+}
+body ::-webkit-scrollbar-track-piece{
+  background: none;
+  border-radius: 10px;
+}
+/* thumb */
+body ::-webkit-scrollbar-thumb{
+  background-color: rgb(153, 255, 0);
+  border-radius: 20px;
+}

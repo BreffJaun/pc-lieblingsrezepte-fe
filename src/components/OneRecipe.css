@@ -1,0 +1,19 @@
+.showIngredients {
+  display: none;
+}
+
+.showPreparations {
+  display: none;
+}
+
+
+
+  .text{
+    text-align: center;
+  }
+  .ram{
+    border: solid;
+  }
+  img{
+    height: 150px;
+  }

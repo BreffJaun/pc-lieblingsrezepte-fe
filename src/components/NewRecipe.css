@@ -1,0 +1,16 @@
+.newInput{
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(150, 220, 0, 1);
+    margin-bottom:-2px
+}
+
+
+.required{
+    color: red;
+    font-size: 0.9rem;
+}
+
+.contentflex{
+    box-sizing: content-box;
+}

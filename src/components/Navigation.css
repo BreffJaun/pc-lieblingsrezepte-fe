@@ -1,0 +1,25 @@
+.navbar{
+  height: 130px;
+  margin-bottom: 40px;
+  /* border: 1px solid orange; */
+}
+
+
+ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-around;
+}
+
+
+.middle{
+  display: flex;
+  align-items: center;
+}
+
+.Logo{
+  justify-content: center;
+  margin: auto;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
