@@ -28,7 +28,7 @@ const NewRecipes = ({isChanged, setIsChanged}) => {
 // console.log(formData);
   const handleSubmit = (e)=>  {
     e.preventDefault();
-    fetch("http://localhost:9876/recipes", {
+    fetch("https://youmami-be.onrender.com", {
       method: "POST",
       body: JSON.stringify(formData),
       headers: {

@@ -30,7 +30,7 @@ function App() {
   
   // useEffect for all recipes if something is new added
   useEffect(() => {
-    fetch("http://localhost:9876/recipes")
+    fetch("https://youmami-be.onrender.com")
       .then((response) => response.json())
       .then((json) => setRecipesData(json))
   }, [isChanged]);
