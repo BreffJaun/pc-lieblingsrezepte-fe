@@ -3,6 +3,7 @@ import { lazy, Suspense } from "react";
 import { useState, useEffect } from "react";
 import "./App.css";
 import OneRecipeSmallSearch from "./components/OneRecipeSmallSearch.js";
+import connection from "./connection.json";
 
 
 /* import Landingpage from "./components/Landingpage.js";
@@ -30,11 +31,11 @@ function App() {
   
   // useEffect for all recipes if something is new added
   useEffect(() => {
-    fetch("http://localhost:9876/recipes")
+    // fetch("http://localhost:9876/recipes")
+    fetch(`${connection.URI}/recipes`)
       .then((response) => response.json())
       .then((json) => setRecipesData(json))
   }, [isChanged]);
-
   
   return (
   <BrowserRouter>
@@ -52,40 +53,33 @@ function App() {
           setLastSearchedRecipe={setLastSearchedRecipe}
       />
         <Routes>
-        
-        
-        <Route path="*" element={<Navigate to="/"/>}/>
-          <Route path="/" element={<Landingpage 
-          recipesData={recipesData}
-          />}/>
-          <Route path="/all-recipes" element={<AllRecipes 
-          recipesData={recipesData}
-          />} />
-          <Route path="/all-searched-recipes" element={<AllSearchedRecipes 
-          recipesData={recipesData}
-          lastSearchedRecipe={lastSearchedRecipe}
-          />} />
-          <Route path="/new-recipes" element={<NewRecipes 
-          isChanged={isChanged}
-          setIsChanged={setIsChanged}
-          />} />
-          <Route path="/one-recipe-big/:_id" element={<OneRecipeBig 
-          recipesData={recipesData}
-          />} />
-          <Route path="/one-recipe-small" element={<OneRecipeSmall />} />
-          <Route path="/one-recipe-small-search" element={<OneRecipeSmallSearch />} />
-          <Route path="/feedback" element={<Feedback />} />
-          
-          {/* <Route path="/navigation" element={<Navigation 
-          isChanged={isChanged}
-          setRecipesData={setRecipesData}
-          // />} /> */}
-        </Routes>
+          <Route path="*" element={<Navigate to="/"/>}/>
+            <Route path="/" element={<Landingpage 
+            recipesData={recipesData}
+            />}/>
+            <Route path="/all-recipes" element={<AllRecipes 
+            recipesData={recipesData}
+            />} />
+            <Route path="/all-searched-recipes" element={<AllSearchedRecipes 
+            recipesData={recipesData}
+            lastSearchedRecipe={lastSearchedRecipe}
+            />} />
+            <Route path="/new-recipes" element={<NewRecipes 
+            isChanged={isChanged}
+            setIsChanged={setIsChanged}
+            />} />
+            <Route path="/one-recipe-big/:_id" element={<OneRecipeBig 
+            recipesData={recipesData}
+            />} />
+            <Route path="/one-recipe-small" element={<OneRecipeSmall />} />
+            <Route path="/one-recipe-small-search" element={<OneRecipeSmallSearch />} />
+            <Route path="/feedback" element={<Feedback />} />
+          </Routes>
         </>
         )}
-      </Suspense>
+        </Suspense>
+      </div>
     </div>
-  </div>
   </BrowserRouter>
   );
 }

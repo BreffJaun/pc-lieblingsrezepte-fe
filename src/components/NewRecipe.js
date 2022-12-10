@@ -1,11 +1,10 @@
 // I M P O R T:  E X T E R N A L  D E P E N D E N C I E S
 import { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
-
+import connection from "../connection.json";
 
 // I M P O R T - S T Y L I N G
 import "./NewRecipe.css"
-
 
 // I M P O R T   F O N T A W E S O M E
 import { GrAddCircle } from 'react-icons/gr';
@@ -28,7 +27,8 @@ const NewRecipes = ({isChanged, setIsChanged}) => {
 // console.log(formData);
   const handleSubmit = (e)=>  {
     e.preventDefault();
-    fetch("http://localhost:9876/recipes", {
+    // fetch("http://localhost:9876/recipes", {
+    fetch(`${connection.URI}/recipes`, {
       method: "POST",
       body: JSON.stringify(formData),
       headers: {
@@ -55,7 +55,6 @@ const NewRecipes = ({isChanged, setIsChanged}) => {
           onChange={onChangeHandler}
           />
       </div>
-
       <div className="flex colum m-top">
         <label className="img">image</label>
         <textarea
@@ -66,7 +65,6 @@ const NewRecipes = ({isChanged, setIsChanged}) => {
           onChange={onChangeHandler}
         />
       </div>
-
       <div className="flex colum m-top">
         <label className="description">description<span className="required">*</span></label>
         <textarea
@@ -77,7 +75,6 @@ const NewRecipes = ({isChanged, setIsChanged}) => {
           onChange={onChangeHandler}
         />
       </div>
-
       <div className="flex colum m-top">
         <label className="ingredients">ingredients<span className="required">*</span></label>
         <textarea
@@ -88,7 +85,6 @@ const NewRecipes = ({isChanged, setIsChanged}) => {
           onChange={onChangeHandler}
         />
       </div>
-
       <div className="flex colum m-top">
         <label className="preparation">preparation<span className="required">*</span></label>
         <textarea
@@ -99,14 +95,8 @@ const NewRecipes = ({isChanged, setIsChanged}) => {
           onChange={onChangeHandler}
           />
       </div>
-
       <div className="flex m-top right">
-        {/* <Link to="/feedback"> */}
-          <button type="submit"
-          
-          >{ <TbSend className="icon"/> }</button>
-        {/* </Link> */}
-
+        <button type="submit">{ <TbSend className="icon"/> }</button>
         <div>
           <Link to="/all-recipes">{ <AiOutlineCloseCircle className="icon"/> }</Link>
         </div>
